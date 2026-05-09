@@ -23,3 +23,9 @@ spec:
   volumes:
    - name: cache-volume
      emptyDir: {}
+
+
+kubectl exce -it podname -c containername -- sh
+
+
+
