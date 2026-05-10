@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: delhi-svc
+spec:
+  selector:
+    env: dev
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30000
+  type: NodePort
+
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: delhi
+spec:
+ selector:
+    env: dev
+ ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+ type: ClusterIP
