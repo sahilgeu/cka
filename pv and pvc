@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: delhi-pvc
+  labels:
+     env: prod
+spec:
+ accessModes:
+   - ReadWriteOnce
+ resources:
+   requests:
+     storage: 500Mi
+ storageClassName: manual
+
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: delhi-pv
+spec:
+  persistentVolumeReclaimPolicy: Delete
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  hostPath:
+    path: /tmp/data
+  storageClassName: manual
